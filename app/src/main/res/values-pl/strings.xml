@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Zgadnij kto to jest!</string>
+    <string name="button_play">Graj</string>
+    <string name="dummy_button">Przycisk</string>
+    <string name="dummy_content">Zawartość</string>
+    <string name="title_activity_fullscreen">Coś</string>
+    <string name="button_exit">Wyjście</string>
+    <string name="label_create_team">Wpisz nazwę drużyny:</string>
+    <string name="text_Team_name">Nazwa</string>
+    <string name="label_create_team_hint">Nazwa</string>
+</resources>

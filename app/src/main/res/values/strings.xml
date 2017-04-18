@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Who Is This</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="button_play">Play</string>
+    <string name="button_exit">Exit</string>
+    <string name="label_create_team">Create team name:</string>
+    <string name="text_Team_name">Team name</string>
+    <string name="label_create_team_hint">Name</string>
+
+    <string name="title_activity_game_round">GameRoundActivity</string>
+</resources>
