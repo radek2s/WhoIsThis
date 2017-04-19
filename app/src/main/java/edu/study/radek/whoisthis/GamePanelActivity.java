@@ -47,13 +47,9 @@ public class GamePanelActivity extends Activity {
         Intent intent = new Intent(this, GameRoundActivity.class);
         EditText editTextA = (EditText) findViewById(R.id.editTextTeamA);
         EditText editTextB = (EditText) findViewById(R.id.editTextTeamB);
+        Core.teamA.setName(editTextA.getText().toString().trim());
+        Core.teamB.setName(editTextB.getText().toString().trim());
 
-        Team teamA = new Team();
-        Team teamB = new Team();
-        teamA.setName(editTextA.getText().toString().trim());
-        teamB.setName(editTextB.getText().toString().trim());
-        intent.putExtra(TEAM_A_NAME, teamA.getName());
-        intent.putExtra(TEAM_B_NAME, teamB.getName());
         startActivity(intent);
 
     }

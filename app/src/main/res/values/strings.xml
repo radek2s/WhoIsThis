@@ -12,4 +12,6 @@
     <string name="label_create_team_hint">Name</string>
 
     <string name="title_activity_game_round">GameRoundActivity</string>
+    <string name="button_skip">Skip</string>
+    <string name="button_correct">Correct</string>
 </resources>

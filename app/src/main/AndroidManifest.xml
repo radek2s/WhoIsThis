@@ -24,7 +24,8 @@
             android:name=".GameRoundActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_game_round"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:theme="@style/FullscreenTheme" />
+        <activity android:name=".ResultsActivity"></activity>
     </application>
 
 </manifest>

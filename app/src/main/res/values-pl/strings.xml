@@ -9,4 +9,7 @@
     <string name="label_create_team">Wpisz nazwę drużyny:</string>
     <string name="text_Team_name">Nazwa</string>
     <string name="label_create_team_hint">Nazwa</string>
+    <string name="title_activity_game_round">Runda</string>
+    <string name="button_skip">Pomiń</string>
+    <string name="button_correct">Dobrze</string>
 </resources>
