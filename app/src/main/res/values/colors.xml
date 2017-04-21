@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFC107</color>
-    <color name="colorPrimaryDark">#FF8F00</color>
-    <color name="colorAccent">#FFE57F</color>
+    <color name="colorPrimary">#fcd734</color> <!-- Text - black -->
+    <color name="colorPrimaryLight">#ffff6b</color>
+    <color name="colorPrimaryDark">#c5a600</color>
+    <color name="textOnPrimary">#000000</color>
+    <color name="colorSecondary">#6200ea</color> <!-- Text - white -->
+    <color name="colorsecondaryLight">#9d46ff</color>
+    <color name="colorSceondatyDark">#0a00b6</color> <!-- Buttons -->
+    <color name="textOnSecondary">#FFFFFF</color>
+    <color name="colorAccent">#9d46ff</color>
 
     <color name="black_overlay">#00000000</color>
 </resources>

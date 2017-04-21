@@ -17,20 +17,15 @@ import java.util.List;
 
 import edu.study.radek.whoisthis.models.Loader;
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
-public class GameRoundActivity extends Activity{
-
+public class GameRound3Activity extends Activity {
 
     Loader loader;
     ImageView images;
     TextView characterName;
     TextView teamName;
-    Button next;
+    Button left;
+    Button right;
     Button skip;
-    Button end;
     int current = 0;
     int activeTeam = 0;
     List<Integer> randoms;
@@ -39,12 +34,12 @@ public class GameRoundActivity extends Activity{
     CountDownTimer countDownTimer2;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_game_round3);
 
-        setContentView(R.layout.activity_game_round);
+
         /* Setting the application to show in fullscreen */
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -54,14 +49,11 @@ public class GameRoundActivity extends Activity{
         /* Find objects */
         images = (ImageView) findViewById(R.id.imageView);
         characterName = (TextView) findViewById(R.id.text_name);
-        teamName = (TextView) findViewById(R.id.textViewTeamNameRound);
-        next = (Button) findViewById(R.id.btn_Corr);
-        skip = (Button) findViewById(R.id.btn_Skip);
-        end =  (Button) findViewById(R.id.btnExit);
-
+        left  = (Button) findViewById(R.id.btn_left);
+        right = (Button) findViewById(R.id.btn_right);
+        skip  = (Button) findViewById(R.id.btn_skip3);
 
         /* Prepare environment */
-        teamName.setText(Core.teamA.getName());
         random();
         addListenerOnButton();
 
@@ -79,25 +71,11 @@ public class GameRoundActivity extends Activity{
             @Override
             public void onFinish() {
                 progressBar.setProgress(0);
-                teamName.setText(Core.teamB.getName());
-                activeTeam=1;
-                countDownTimer2.start();
+                play();
             }
         };
         countDownTimer.start();
 
-        countDownTimer2 = new CountDownTimer(60000, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                int progress = (int) (100*millisUntilFinished/60000);
-                progressBar.setProgress(progress);
-            }
-
-            @Override
-            public void onFinish() {
-                play();
-            }
-        };
     }
 
     public void play(){
@@ -112,16 +90,25 @@ public class GameRoundActivity extends Activity{
 
     public void addListenerOnButton(){
 
-        next.setOnClickListener(new View.OnClickListener() {
+        left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(current<loader.getPictures().size()){
                     current++;
-                    if(activeTeam==0){
-                        Core.teamA.addPoint();
-                    } else {
-                        Core.teamB.addPoint();
-                    }
+                    Core.teamA.addPoint();
+                    nextImage(randoms.get(current));
+                } else {
+                    finishActivity(0);
+                }
+            }
+        });
+
+        right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(current<loader.getPictures().size()){
+                    current++;
+                    Core.teamB.addPoint();
                     nextImage(randoms.get(current));
                 } else {
                     finishActivity(0);
@@ -145,8 +132,6 @@ public class GameRoundActivity extends Activity{
 
     }
 
-
-
     public void random(){
         randoms = new ArrayList<>();
         for(int i = 0; i < loader.getPictures().size(); i++){
@@ -155,5 +140,5 @@ public class GameRoundActivity extends Activity{
         Collections.shuffle(randoms);
 
     }
-
 }
+

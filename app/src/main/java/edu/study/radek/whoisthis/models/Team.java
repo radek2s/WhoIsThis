@@ -1,4 +1,4 @@
-package edu.study.radek.whoisthis;
+package edu.study.radek.whoisthis.models;
 
 /**
  * Created by radek_000 on 18.04.2017.
@@ -20,6 +20,14 @@ public class Team {
 
     public String getName(){
         return this.name;
+    }
+
+    public int getScore(){
+        return this.score;
+    }
+
+    public void addPoint(){
+        this.score = this.score + 1;
     }
 
 }

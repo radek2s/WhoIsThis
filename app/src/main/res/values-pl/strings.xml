@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Zgadnij kto to jest!</string>
-    <string name="button_play">Graj</string>
+    <string name="button_play">3 Graczy</string>
     <string name="dummy_button">Przycisk</string>
     <string name="dummy_content">Zawartość</string>
     <string name="title_activity_fullscreen">Coś</string>
@@ -12,4 +12,13 @@
     <string name="title_activity_game_round">Runda</string>
     <string name="button_skip">Pomiń</string>
     <string name="button_correct">Dobrze</string>
+    <string name="button_play2">4+ Graczy</string>
+    <string name="label_create_person">Nazwa gracza:</string>
+    <string name="instruction_3players">"Ogólne zasady:\nProwadzący i dwoch rywalizujących graczy. \nRunda trwa 3 minuty, a gracze maja zgadnac postać prezentowaną przez prowadzącego. Ten który pierwszy zgadnie postać zyskuje punkt. Jeżeli obaj gracze spasują prowadzący może pominąć postać którą opisuje. \nWygrywa ten gracz który uzbiera wiecej punktów w czasie rozgrywki. \n\nPrzed rozpoczęciem gry ustalcie jeden wariant gry! \n\nWarianty gry:\n- Opisywanie postaci:\nProwadzący może na wszelkie sposoby opisywać daną postać, ale nie może używać słów z których się sklada nazwa postaci.\n- Przedstawienie postaci:\nProwadzący nie może używać słów. Może jedynie gestykulować i w ten sposób musi przedstawić postać. W tym wariancie nie ma ograniczenia co do pokazywania. "</string>
+    <string name="instruction_4players">"Ogólne zasady:\nGracze dzielą sie na dwie drużyny. \nGra dzieli się na dwie rundy po 3 minuty. \nGracze z jednej drużyny mają za zadanie odgadnąć prezentowaną przez swojego towarzysza postać, w tym czasie druga drużyna nie może odpowiadać. Prezenterem jest tylko jedna osoba z drużyny na całą rundę. Za każdą rozpoznaną postać drużyna zyskuje punkt. Po upływie czasu rundy następuje zamiana drużyn i drugi zespół walczy o punkty. \nWygrywa ta drużyna, która uzbiera na koniec więcej punktów.\n\nPrzed rozpoczęciem gry ustalcie jeden wariant gry! \n\nWarianty gry:\n- Opisywanie postaci:\nProwadzący może na wszelkie sposoby opisywać daną postać, ale nie może używać słów z których się sklada nazwa postaci.\n- Przedstawienie postaci:\nProwadzący nie może używać słów. Może jedynie gestykulować i w ten sposób musi przedstawić postać. W tym wariancie nie ma ograniczenia co do pokazywania. "</string>
+    <string name="button_start">Rozpocznij</string>
+    <string name="radiobtn_gesures">Przedstawianie na migi</string>
+    <string name="radiobtn_voice">Opiswyanie słowami</string>
+    <string name="button_left">Lewy Gracz</string>
+    <string name="button_right">Prawy Gracz</string>
 </resources>

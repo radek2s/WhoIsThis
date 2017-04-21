@@ -1,6 +1,8 @@
-package edu.study.radek.whoisthis;
+package edu.study.radek.whoisthis.models;
 
 import java.util.LinkedList;
+
+import edu.study.radek.whoisthis.R;
 
 /**
  * Created by radek_000 on 19.04.2017.
@@ -21,7 +23,7 @@ public class Loader {
     }
 
     private void loadPictures(LinkedList pictures){
-        pictures.add(new Picture("Adam Małysz",R.drawable.adam_malysz));
+        pictures.add(new Picture("Adam Małysz", R.drawable.adam_malysz));
         pictures.add(new Picture("Adam Mickiweicz",R.drawable.adam_mickiewicz));
         pictures.add(new Picture("Adolf Hitler",R.drawable.adolf_hitler));
         pictures.add(new Picture("Agnieszka Radwańska",R.drawable.agnieszka_radwanska));

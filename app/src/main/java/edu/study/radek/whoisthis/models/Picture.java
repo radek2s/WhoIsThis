@@ -1,4 +1,4 @@
-package edu.study.radek.whoisthis;
+package edu.study.radek.whoisthis.models;
 
 /**
  * Created by radek_000 on 19.04.2017.

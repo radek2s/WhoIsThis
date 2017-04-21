@@ -5,7 +5,7 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>
-    <string name="button_play">Play</string>
+    <string name="button_play">3 Players</string>
     <string name="button_exit">Exit</string>
     <string name="label_create_team">Create team name:</string>
     <string name="text_Team_name">Team name</string>
@@ -14,4 +14,17 @@
     <string name="title_activity_game_round">GameRoundActivity</string>
     <string name="button_skip">Skip</string>
     <string name="button_correct">Correct</string>
+
+    <string name="title_activity_create_team">CreateTeamActivity</string>
+    <string name="button_play2">4+ Players</string>
+    <string name="label_create_person">Player name:</string>
+
+    <string name="title_activity_introduction">IntroductionActivity</string>
+    <string name="instruction_3players">Game rules:\nLeader and two competitive players. \nPlayers trying to guess the character presented by a leader during the round time. This player which guess the person correctly first gains one point. The winner is that player wich will have more points that second one at the end of time. \n\nBefore start choose one game variant! \n\nGame variants:\n- Describing people:\nLeader try to describe character, but mustn\'t use words contained in character name.\n- Presenting people:\nLeader are not allowed to describe character by words, he can only use body language and gestures.</string>
+    <string name="instruction_4players">Game rules:\nTwo competitive teams. Game consist of two rounds.\nTeams trying to guess the character presented by a leader during the round time. This player which guess the person correctly gains one point for the team. Meanwhile opposite team waits until the first one ends their round. The winner is that team wich will have more points at the end of game. \n\nBefore start choose one game variant! \n\nGame variants:\n- Describing people:\nLeader try to describe character, but mustn\'t use words contained in character name.\n- Presenting people:\nLeader are not allowed to describe character by words, he can only use body language and gestures.</string>
+    <string name="button_start">Start</string>
+    <string name="radiobtn_voice">Describing</string>
+    <string name="radiobtn_gesures">Gestures</string>
+    <string name="button_left">Left Player</string>
+    <string name="button_right">Right Player</string>
 </resources>

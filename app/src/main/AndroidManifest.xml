@@ -25,7 +25,18 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_game_round"
             android:theme="@style/FullscreenTheme" />
-        <activity android:name=".ResultsActivity"></activity>
+        <activity android:name=".ResultsActivity" />
+        <activity
+            android:name=".CreateTeamActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_create_team"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".IntroductionActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_introduction"
+            android:theme="@style/FullscreenTheme" />
+        <activity android:name=".GameRound3Activity"></activity>
     </application>
 
 </manifest>

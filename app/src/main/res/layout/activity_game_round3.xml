@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="edu.study.radek.whoisthis.GameRoundActivity">
+    tools:context="edu.study.radek.whoisthis.GameRound3Activity">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
@@ -34,16 +34,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
-                <TextView
-                    android:id="@+id/textViewTeamNameRound"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Team A"
-                    android:textAlignment="center"
-                    android:textColor="@color/textOnPrimary"
-                    android:textSize="18sp" />
-
             </LinearLayout>
 
             <ImageView
@@ -65,7 +55,6 @@
                     android:padding="10dp"
                     android:text="TextView"
                     android:textAlignment="center"
-                    android:textColor="@color/textOnPrimary"
                     android:textSize="30sp"
                     android:textStyle="bold" />
 
@@ -75,18 +64,18 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/btn_Corr"
+                        android:id="@+id/btn_left"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
                         android:background="@color/colorsecondaryLight"
-                        android:text="@string/button_correct"
+                        android:text="@string/button_left"
                         android:textColor="@color/textOnSecondary" />
 
                     <Button
-                        android:id="@+id/btn_Skip"
+                        android:id="@+id/btn_skip3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -94,6 +83,17 @@
                         android:layout_weight="1"
                         android:background="@color/colorsecondaryLight"
                         android:text="@string/button_skip"
+                        android:textColor="@color/textOnSecondary" />
+
+                    <Button
+                        android:id="@+id/btn_right"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorsecondaryLight"
+                        android:text="@string/button_right"
                         android:textColor="@color/textOnSecondary" />
 
                 </LinearLayout>
