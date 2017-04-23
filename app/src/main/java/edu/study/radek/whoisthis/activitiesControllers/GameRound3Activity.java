@@ -1,4 +1,4 @@
-package edu.study.radek.whoisthis;
+package edu.study.radek.whoisthis.activitiesControllers;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,36 +15,29 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import edu.study.radek.whoisthis.Core;
+import edu.study.radek.whoisthis.R;
 import edu.study.radek.whoisthis.models.Loader;
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
-public class GameRoundActivity extends Activity{
+public class GameRound3Activity extends Activity {
 
-
-    Loader loader;
-    ImageView images;
-    TextView characterName;
-    TextView teamName;
-    Button next;
-    Button skip;
-    Button end;
-    int current = 0;
-    int activeTeam = 0;
-    List<Integer> randoms;
-    ProgressBar progressBar;
-    CountDownTimer countDownTimer;
-    CountDownTimer countDownTimer2;
-
-
+    private Loader loader;
+    private ImageView images;
+    private TextView characterName;
+    private Button left;
+    private Button right;
+    private Button skip;
+    private int current = 0;
+    private int time = Core.time * 60 * 1000;
+    private List<Integer> randoms;
+    private ProgressBar progressBar;
+    private CountDownTimer countDownTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_game_round3);
 
-        setContentView(R.layout.activity_game_round);
         /* Setting the application to show in fullscreen */
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -54,50 +47,34 @@ public class GameRoundActivity extends Activity{
         /* Find objects */
         images = (ImageView) findViewById(R.id.imageView);
         characterName = (TextView) findViewById(R.id.text_name);
-        teamName = (TextView) findViewById(R.id.textViewTeamNameRound);
-        next = (Button) findViewById(R.id.btn_Corr);
-        skip = (Button) findViewById(R.id.btn_Skip);
-        end =  (Button) findViewById(R.id.btnExit);
-
+        left  = (Button) findViewById(R.id.btn_left);
+        right = (Button) findViewById(R.id.btn_right);
+        skip  = (Button) findViewById(R.id.btn_skip3);
 
         /* Prepare environment */
-        teamName.setText(Core.teamA.getName());
         random();
+        setNameText();
         addListenerOnButton();
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar4);
         progressBar.setProgress(100);
 
 
-        countDownTimer = new CountDownTimer(60000, 1000) {
+        countDownTimer = new CountDownTimer(time, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                int progress = (int) (100*millisUntilFinished/60000);
+                int progress = (int) (100*millisUntilFinished/time);
                 progressBar.setProgress(progress);
             }
 
             @Override
             public void onFinish() {
                 progressBar.setProgress(0);
-                teamName.setText(Core.teamB.getName());
-                activeTeam=1;
-                countDownTimer2.start();
+                play();
             }
         };
         countDownTimer.start();
 
-        countDownTimer2 = new CountDownTimer(60000, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                int progress = (int) (100*millisUntilFinished/60000);
-                progressBar.setProgress(progress);
-            }
-
-            @Override
-            public void onFinish() {
-                play();
-            }
-        };
     }
 
     public void play(){
@@ -112,16 +89,25 @@ public class GameRoundActivity extends Activity{
 
     public void addListenerOnButton(){
 
-        next.setOnClickListener(new View.OnClickListener() {
+        left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(current<loader.getPictures().size()){
                     current++;
-                    if(activeTeam==0){
-                        Core.teamA.addPoint();
-                    } else {
-                        Core.teamB.addPoint();
-                    }
+                    Core.teamA.addPoint();
+                    nextImage(randoms.get(current));
+                } else {
+                    finishActivity(0);
+                }
+            }
+        });
+
+        right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(current<loader.getPictures().size()){
+                    current++;
+                    Core.teamB.addPoint();
                     nextImage(randoms.get(current));
                 } else {
                     finishActivity(0);
@@ -145,7 +131,10 @@ public class GameRoundActivity extends Activity{
 
     }
 
-
+    private void setNameText(){
+        left.setText(Core.teamA.getName());
+        right.setText(Core.teamB.getName());
+    }
 
     public void random(){
         randoms = new ArrayList<>();
@@ -155,5 +144,5 @@ public class GameRoundActivity extends Activity{
         Collections.shuffle(randoms);
 
     }
-
 }
+

@@ -4,7 +4,10 @@ import edu.study.radek.whoisthis.models.Loader;
 import edu.study.radek.whoisthis.models.Team;
 
 /**
- * Created by radek_000 on 19.04.2017.
+ * @author radek2s
+ * created 19.04.2017
+ *
+ * Core class to handle settings and game progress.
  */
 
 public class Core {
@@ -12,4 +15,9 @@ public class Core {
     public static Loader loader = new Loader();
     public static Team teamA = new Team();
     public static Team teamB = new Team();
+
+    public static int time      = 3;
+    public static int rounds    = 1;
+    public static int difficulty= 10;
+
 }

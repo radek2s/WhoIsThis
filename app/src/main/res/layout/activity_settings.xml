@@ -1,0 +1,159 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="edu.study.radek.whoisthis.activitiesControllers.SettingsActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="0.04"
+                android:text="@string/radiobtn_round_desc"
+                android:textColor="@color/textOnPrimary"
+                android:textSize="18sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3">
+
+                <RadioButton
+                    android:id="@+id/rbR1"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_weight="1"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/radiobtn_round_min"
+                    android:textColor="@color/textOnPrimary" />
+
+                <RadioButton
+                    android:id="@+id/rbR2"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_weight="1"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/radiobtn_round_mid"
+                    android:textColor="@color/textOnPrimary" />
+
+                <RadioButton
+                    android:id="@+id/rbR3"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_weight="1"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/radiobtn_round_long"
+                    android:textColor="@color/textOnPrimary" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textView5"
+                android:text="@string/radiobtn_time_desc"
+                style="@style/text" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1">
+
+                <RadioButton
+                    android:id="@+id/rbT1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/radiobtn_time_short"
+                    android:textColor="@color/textOnPrimary" />
+
+                <RadioButton
+                    android:id="@+id/rbT2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/radiobtn_time_mid"
+                    android:textColor="@color/textOnPrimary" />
+
+                <RadioButton
+                    android:id="@+id/rbT3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/radiobtn_time_long"
+                    android:textColor="@color/textOnPrimary" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="0.04"
+                android:text="@string/radiobtn_skip_desc"
+                android:textColor="@color/textOnPrimary"
+                android:textSize="18sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.04">
+
+                <RadioButton
+                    android:id="@+id/rbS1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/radiobtn_skip_min" />
+
+                <RadioButton
+                    android:id="@+id/rbS2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/radiobtn_skip_mid" />
+
+                <RadioButton
+                    android:id="@+id/rbS3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/radiobtn_skip_max" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_margin="20dp"
+                android:layout_weight="0.1"
+                android:background="@color/colorAccent"
+                android:onClick="onReturnButtonClicked"
+                android:text="@string/button_back"
+                android:textColor="@color/textOnSecondary" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

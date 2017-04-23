@@ -5,7 +5,11 @@ import java.util.LinkedList;
 import edu.study.radek.whoisthis.R;
 
 /**
- * Created by radek_000 on 19.04.2017.
+ * @author radek2s
+ * created 19.04.2017
+ *
+ * Loader class carry data from resources to application
+ * Loads images and sets up names
  */
 
 public class Loader {

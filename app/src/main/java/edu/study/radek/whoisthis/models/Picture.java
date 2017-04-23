@@ -1,7 +1,9 @@
 package edu.study.radek.whoisthis.models;
 
 /**
- * Created by radek_000 on 19.04.2017.
+ * @author radek2s
+ * created 19.04.2017
+ *
  */
 
 public class Picture {
@@ -9,17 +11,14 @@ public class Picture {
     private int src;
     private String name;
 
-    public Picture(String name, int src){
+    /* package-private constructor - only to use by Loader Class */
+    Picture(String name, int src){
         this.name = name;
         this.src = src;
     }
 
     public int getSrc() {
         return src;
-    }
-
-    public void setSrc(int src) {
-        this.src = src;
     }
 
     public String getName() {

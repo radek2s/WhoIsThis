@@ -1,9 +1,6 @@
 <resources>
     <string name="app_name">Who Is This</string>
 
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="button_play">3 Players</string>
     <string name="button_exit">Exit</string>
@@ -27,4 +24,22 @@
     <string name="radiobtn_gesures">Gestures</string>
     <string name="button_left">Left Player</string>
     <string name="button_right">Right Player</string>
+    <string name="dialog_next">Next team.\n\nGet ready!</string>
+    <string name="button_back">Back</string>
+    <string name="radiobtn_time_short">2 Minutes</string>
+    <string name="radiobtn_time_mid">3 Minutes</string>
+    <string name="radiobtn_time_long">5 Minutes</string>
+    <string name="radiobtn_round_min">1 Round</string>
+    <string name="radiobtn_round_mid">3 Rounds</string>
+    <string name="radiobtn_round_long">5 Rounds</string>
+    <string name="radiobtn_time_desc">Single round time:</string>
+    <string name="radiobtn_round_desc">Number of rounds (only 4+ mode):</string>
+    <string name="button_settings">Settings</string>
+    <string name="text_result_message">Time\'s up!</string>
+    <string name="text_results_winner">Winner:</string>
+    <string name="text_results_looser">Other team:</string>
+    <string name="radiobtn_skip_min">Easy (10 skips)</string>
+    <string name="radiobtn_skip_mid">Medium (5 skips)</string>
+    <string name="radiobtn_skip_max">Hard (3 skips)</string>
+    <string name="radiobtn_skip_desc">Difficulty:</string>
 </resources>

@@ -1,22 +1,16 @@
-package edu.study.radek.whoisthis;
+package edu.study.radek.whoisthis.activitiesControllers;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
+import edu.study.radek.whoisthis.Core;
+import edu.study.radek.whoisthis.R;
+
 public class CreateTeamActivity extends Activity {
 
     int type;
@@ -45,13 +39,6 @@ public class CreateTeamActivity extends Activity {
 
     }
 
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-
-
-    }
-
     public void play(View view){
 
         Intent intent;
@@ -61,12 +48,13 @@ public class CreateTeamActivity extends Activity {
             intent = new Intent(this, GameRoundActivity.class);
         }
 
-
         EditText teamA = (EditText) findViewById(R.id.editTextTeamNameA);
         EditText teamB = (EditText) findViewById(R.id.editTextTeamNameB);
 
         Core.teamA.setName(teamA.getText().toString().trim());
         Core.teamB.setName(teamB.getText().toString().trim());
+        Core.teamA.resetPoints();
+        Core.teamB.resetPoints();
 
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);

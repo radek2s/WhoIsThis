@@ -1,4 +1,4 @@
-package edu.study.radek.whoisthis;
+package edu.study.radek.whoisthis.activitiesControllers;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,17 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
+import edu.study.radek.whoisthis.R;
+
+
 public class GamePanelActivity extends Activity {
 
     public static final String GAME_TYPE = "0";
-    private Button btn_exit;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +22,7 @@ public class GamePanelActivity extends Activity {
 
         setContentView(R.layout.activity_game_panel);
 
-        btn_exit = (Button) findViewById(R.id.btnExit);
+        Button btn_exit = (Button) findViewById(R.id.btnExit);
         btn_exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,12 +32,9 @@ public class GamePanelActivity extends Activity {
 
     }
 
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-
-    }
-
+    /*
+     * Play in 3 players mode button reaction
+     */
     public void play3(View view){
         Intent intent = new Intent(this, IntroductionActivity.class);
         String type = "3";
@@ -50,10 +43,18 @@ public class GamePanelActivity extends Activity {
 
     }
 
+    /*
+     * Play in 4 players mode+ button reaction
+     */
     public void play4(View view){
         Intent intent = new Intent(this, IntroductionActivity.class);
         String type = "4";
         intent.putExtra(GAME_TYPE, type);
+        startActivity(intent);
+    }
+
+    public void openSettings(View view){
+        Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 

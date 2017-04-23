@@ -20,4 +20,14 @@
         <item name="android:background">@color/black_overlay</item>
     </style>
 
+    <style name="text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_weight">0.02</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textColor">@color/textOnPrimary</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
 </resources>
