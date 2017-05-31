@@ -19,7 +19,7 @@
     <string name="radiobtn_voice">Opiswyanie słowami</string>
     <string name="button_left">Lewy Gracz</string>
     <string name="button_right">Prawy Gracz</string>
-    <string name="dialog_next">Kolejna drużyna.\n\nPrzygotujcie się!</string>
+    <string name="dialog_next">" Zdobytych punktów.\n \n Kolejna drużyna.\nPrzygotujcie się!"</string>
     <string name="button_back">Powrót</string>
     <string name="radiobtn_time_short">2 Minuty</string>
     <string name="radiobtn_time_mid">3 Minuty</string>
@@ -39,4 +39,8 @@
     <string name="radiobtn_skip_desc">Poziom trudności:</string>
     <string name="title_activity_create_team">Stwórz drużynę</string>
     <string name="title_activity_introduction">Instrukcja Gry</string>
+    <string name="startDialog_intro">Przygotujcie się!</string>
+    <string name="team_name_A">Sieciowcy</string>
+    <string name="team_name_B">Programiści</string>
+    <string name="button_results">Ostatnio pominięte postacie</string>
 </resources>

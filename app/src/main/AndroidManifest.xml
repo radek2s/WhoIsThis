@@ -37,7 +37,8 @@
             android:label="@string/title_activity_introduction"
             android:theme="@style/FullscreenTheme" />
         <activity android:name=".activitiesControllers.GameRound3Activity" />
-        <activity android:name=".activitiesControllers.SettingsActivity"></activity>
+        <activity android:name=".activitiesControllers.SettingsActivity" />
+        <activity android:name=".activitiesControllers.SkippedPeopleActivity"></activity>
     </application>
 
 </manifest>

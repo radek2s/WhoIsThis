@@ -55,6 +55,18 @@
             android:textColor="@color/textOnPrimary" />
 
         <Button
+            android:id="@+id/btnResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryLight"
+            android:onClick="openResults"
+            android:text="@string/button_results"
+            android:textAlignment="center"
+            android:textColor="@color/textOnPrimary" />
+
+        <Button
             android:id="@+id/btnSett"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

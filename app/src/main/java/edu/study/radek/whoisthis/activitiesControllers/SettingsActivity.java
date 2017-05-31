@@ -49,25 +49,25 @@ public class SettingsActivity extends Activity {
         radiobuttonDiffMid = (RadioButton) findViewById(R.id.rbS2);
         radiobuttonDiffMax = (RadioButton) findViewById(R.id.rbS3);
 
-        if (Core.rounds == 1){
+        if (Core.getInstance().getRounds() == 1){
             radiobuttonRoundMin.toggle();
-        } else if (Core.rounds == 3) {
+        } else if (Core.getInstance().getRounds() == 3) {
             radiobuttonRoundMid.toggle();
         } else {
             radiobuttonRoundMax.toggle();
         }
 
-        if (Core.time == 2){
+        if (Core.getInstance().getTime() == 2){
             radiobuttonTimeMin.toggle();
-        } else if (Core.time == 3){
+        } else if (Core.getInstance().getTime() == 3){
             radiobuttonTimeMid.toggle();
         } else {
             radiobuttonTimeMax.toggle();
         }
 
-        if (Core.difficulty == 10){
+        if (Core.getInstance().getDifficulty() == 10){
             radiobuttonDiffMin.toggle();
-        } else if (Core.difficulty == 5){
+        } else if (Core.getInstance().getDifficulty() == 5){
             radiobuttonDiffMid.toggle();
         } else {
             radiobuttonDiffMax.toggle();
@@ -83,49 +83,49 @@ public class SettingsActivity extends Activity {
             /* Setting rounds */
             case R.id.rbR1:
                 if (checked){
-                    Core.rounds = 1;
+                    Core.getInstance().setRounds(1);
                 }
                 break;
             case R.id.rbR2:
                 if (checked){
-                    Core.rounds = 3;
+                    Core.getInstance().setRounds(3);
                 }
                 break;
             case R.id.rbR3:
                 if (checked){
-                    Core.rounds = 5;
+                    Core.getInstance().setRounds(5);
                 }
                 break;
             /* Setting Time */
             case R.id.rbT1:
                 if (checked){
-                    Core.time = 2;
+                    Core.getInstance().setTime(2);
                 }
                 break;
             case R.id.rbT2:
                 if (checked){
-                    Core.time = 3;
+                    Core.getInstance().setTime(3);
                 }
                 break;
             case R.id.rbT3:
                 if (checked){
-                    Core.time = 5;
+                    Core.getInstance().setTime(5);
                 }
                 break;
             /* Setting difficulty */
             case R.id.rbS1:
                 if (checked){
-                    Core.difficulty = 10;
+                    Core.getInstance().setDifficulty(10);
                 }
                 break;
             case R.id.rbS2:
                 if (checked){
-                    Core.difficulty = 5;
+                    Core.getInstance().setDifficulty(5);
                 }
                 break;
             case R.id.rbS3:
                 if (checked){
-                    Core.difficulty = 3;
+                    Core.getInstance().setDifficulty(3);
                 }
                 break;
 

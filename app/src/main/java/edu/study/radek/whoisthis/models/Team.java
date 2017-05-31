@@ -44,7 +44,7 @@ public class Team {
 
     public void resetPoints(){
         this.score = 0;
-        usedSkips = 0;
+        this.usedSkips = 0;
     }
 
 }

@@ -24,7 +24,7 @@
     <string name="radiobtn_gesures">Gestures</string>
     <string name="button_left">Left Player</string>
     <string name="button_right">Right Player</string>
-    <string name="dialog_next">Next team.\n\nGet ready!</string>
+    <string name="dialog_next">" Earned points.\n\nNext team.\nGet ready!"</string>
     <string name="button_back">Back</string>
     <string name="radiobtn_time_short">2 Minutes</string>
     <string name="radiobtn_time_mid">3 Minutes</string>
@@ -42,4 +42,8 @@
     <string name="radiobtn_skip_mid">Medium (5 skips)</string>
     <string name="radiobtn_skip_max">Hard (3 skips)</string>
     <string name="radiobtn_skip_desc">Difficulty:</string>
+    <string name="startDialog_intro">Get Ready!</string>
+    <string name="team_name_A">Networkers</string>
+    <string name="team_name_B">Programmers</string>
+    <string name="button_results">Last Skipped Characters</string>
 </resources>

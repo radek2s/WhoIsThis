@@ -12,7 +12,7 @@ public class Picture {
     private String name;
 
     /* package-private constructor - only to use by Loader Class */
-    Picture(String name, int src){
+    public Picture(String name, int src){
         this.name = name;
         this.src = src;
     }

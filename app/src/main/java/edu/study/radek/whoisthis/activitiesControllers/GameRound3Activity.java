@@ -1,6 +1,8 @@
 package edu.study.radek.whoisthis.activitiesControllers;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -18,20 +20,26 @@ import java.util.List;
 import edu.study.radek.whoisthis.Core;
 import edu.study.radek.whoisthis.R;
 import edu.study.radek.whoisthis.models.Loader;
+import edu.study.radek.whoisthis.models.Picture;
 
 public class GameRound3Activity extends Activity {
 
     private Loader loader;
-    private ImageView images;
-    private TextView characterName;
-    private Button left;
-    private Button right;
-    private Button skip;
-    private int current = 0;
-    private int time = Core.time * 60 * 1000;
+
+    private ImageView imageViewPeople;
+    private TextView textViewPeople;
+    private Button btnLeft;
+    private Button btnRight;
+    private Button btnSkip;
+    private Dialog dialog;
+
+    private int currentIndex = 0;
+    private int time = Core.getInstance().getTime() * 60 * 1000;
     private List<Integer> randoms;
     private ProgressBar progressBar;
     private CountDownTimer countDownTimer;
+
+    Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,14 +50,14 @@ public class GameRound3Activity extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         /* Load pictures */
-        loader = Core.loader;
+        loader = Core.getInstance().getLoader();
 
         /* Find objects */
-        images = (ImageView) findViewById(R.id.imageView);
-        characterName = (TextView) findViewById(R.id.text_name);
-        left  = (Button) findViewById(R.id.btn_left);
-        right = (Button) findViewById(R.id.btn_right);
-        skip  = (Button) findViewById(R.id.btn_skip3);
+        imageViewPeople = (ImageView) findViewById(R.id.imageView);
+        textViewPeople = (TextView) findViewById(R.id.text_name);
+        btnLeft = (Button) findViewById(R.id.btn_left);
+        btnRight = (Button) findViewById(R.id.btn_right);
+        btnSkip = (Button) findViewById(R.id.btn_skip3);
 
         /* Prepare environment */
         random();
@@ -73,7 +81,8 @@ public class GameRound3Activity extends Activity {
                 play();
             }
         };
-        countDownTimer.start();
+        showStartDialog();
+
 
     }
 
@@ -83,57 +92,68 @@ public class GameRound3Activity extends Activity {
     }
 
     public void nextImage(int i){
-        images.setImageResource(loader.getPictures().get(i).getSrc());
-        characterName.setText(loader.getPictures().get(i).getName());
+        imageViewPeople.setImageResource(loader.getPictures().get(i).getSrc());
+        textViewPeople.setText(loader.getPictures().get(i).getName());
+        int remain = Core.getInstance().getDifficulty() - Core.getInstance().getTeamA().getUsedSkips();
+
+        btnSkip.setEnabled(true);
+        if ( remain <= 0 ){
+            btnSkip.setEnabled(false);
+        }
+        btnSkip.setText(getString(R.string.button_skip) + " (" + remain + ")");
+
     }
 
     public void addListenerOnButton(){
 
-        left.setOnClickListener(new View.OnClickListener() {
+        btnLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(current<loader.getPictures().size()){
-                    current++;
-                    Core.teamA.addPoint();
-                    nextImage(randoms.get(current));
+                if(currentIndex <loader.getPictures().size()){
+                    currentIndex++;
+                    Core.getInstance().getTeamA().addPoint();
+                    nextImage(randoms.get(currentIndex));
                 } else {
                     finishActivity(0);
                 }
             }
         });
 
-        right.setOnClickListener(new View.OnClickListener() {
+        btnRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(current<loader.getPictures().size()){
-                    current++;
-                    Core.teamB.addPoint();
-                    nextImage(randoms.get(current));
+                if(currentIndex <loader.getPictures().size()){
+                    currentIndex++;
+                    Core.getInstance().getTeamB().addPoint();
+                    nextImage(randoms.get(currentIndex));
                 } else {
                     finishActivity(0);
                 }
             }
         });
 
-        skip.setOnClickListener(new View.OnClickListener() {
+        btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(current<loader.getPictures().size()){
-                    current++;
-                    nextImage(randoms.get(current));
+
+                if(currentIndex < loader.getPictures().size()){
+                    Core.getInstance().getSkippedCharacters().add(new Picture(
+                            loader.getPictures().get(randoms.get(currentIndex)).getName(),
+                            loader.getPictures().get(randoms.get(currentIndex)).getSrc()));
+                    currentIndex++;
+                    Core.getInstance().getTeamA().skip();
+                    nextImage(randoms.get(currentIndex));
                 } else {
                     finishActivity(0);
                 }
             }
         });
-
-
 
     }
 
     private void setNameText(){
-        left.setText(Core.teamA.getName());
-        right.setText(Core.teamB.getName());
+        btnLeft.setText(Core.getInstance().getTeamA().getName());
+        btnRight.setText(Core.getInstance().getTeamB().getName());
     }
 
     public void random(){
@@ -142,7 +162,24 @@ public class GameRound3Activity extends Activity {
             randoms.add(i);
         }
         Collections.shuffle(randoms);
-
     }
-}
 
+    public void showStartDialog(){
+        dialog = new Dialog(context);
+        dialog.setContentView(R.layout.dialog_next_team);
+
+        dialog.setTitle(R.string.startDialog_intro);
+        Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                countDownTimer.start();
+                dialog.dismiss();
+                currentIndex++;
+                nextImage(randoms.get(currentIndex));
+            }
+        });
+        dialog.show();
+    }
+
+}

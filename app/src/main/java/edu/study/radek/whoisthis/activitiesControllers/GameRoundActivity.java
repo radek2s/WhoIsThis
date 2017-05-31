@@ -20,6 +20,7 @@ import java.util.List;
 import edu.study.radek.whoisthis.Core;
 import edu.study.radek.whoisthis.R;
 import edu.study.radek.whoisthis.models.Loader;
+import edu.study.radek.whoisthis.models.Picture;
 
 public class GameRoundActivity extends Activity{
 
@@ -36,7 +37,7 @@ public class GameRoundActivity extends Activity{
     int currentIndex = 0;
     int currentRound = 0;
     int activeTeam   = 0;
-    int time         = Core.time * 60 * 1000;
+    int time         = Core.getInstance().getTime() * 60 * 1000;
     List<Integer> randoms;
     CountDownTimer countDownTimer;
     CountDownTimer countDownTimer2;
@@ -51,7 +52,7 @@ public class GameRoundActivity extends Activity{
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         /* Load pictures */
-        loader = Core.loader;
+        loader = Core.getInstance().getLoader();
 
         /* Find objects */
         imageViewPeople =   (ImageView) findViewById(R.id.imageView);
@@ -61,7 +62,7 @@ public class GameRoundActivity extends Activity{
         btnSkip =           (Button) findViewById(R.id.btn_Skip);
 
         /* Prepare environment */
-        textViewTeamName.setText(Core.teamA.getName());
+        textViewTeamName.setText(Core.getInstance().getTeamA().getName());
         random();
         addListenerOnButton();
 
@@ -93,7 +94,7 @@ public class GameRoundActivity extends Activity{
             @Override
             public void onFinish() {
 
-                if ( currentRound < Core.rounds - 1 ){
+                if ( currentRound < Core.getInstance().getRounds() - 1 ){
                     currentRound++;
                     showStartDialog(0);
                 } else {
@@ -130,13 +131,13 @@ public class GameRoundActivity extends Activity{
         textViewPeople.setText(loader.getPictures().get(i).getName());
         btnSkip.setEnabled(true);
         if ( activeTeam == 0 ){
-            int remain = Core.difficulty - Core.teamA.getUsedSkips();
+            int remain = Core.getInstance().getDifficulty() - Core.getInstance().getTeamA().getUsedSkips();
             if ( remain <= 0 ){
                 btnSkip.setEnabled(false);
             }
             btnSkip.setText(getString(R.string.button_skip) + " (" + remain + ")");
         } else {
-            int remain = Core.difficulty - Core.teamB.getUsedSkips();
+            int remain = Core.getInstance().getDifficulty() - Core.getInstance().getTeamB().getUsedSkips();
             if ( remain <= 0 ){
                 btnSkip.setEnabled(false);
             }
@@ -154,15 +155,17 @@ public class GameRoundActivity extends Activity{
     public void showStartDialog(int team){
         dialog = new Dialog(context);
         dialog.setContentView(R.layout.dialog_next_team);
+        TextView dialogText = (TextView) dialog.findViewById(R.id.dialogText);
 
         if ( team == 0 ){
-            dialog.setTitle(Core.teamA.getName() + " - przygotujcie się!");
+            dialog.setTitle(Core.getInstance().getTeamA().getName() + " - przygotujcie się!");
             Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
+            dialogText.setText(Core.getInstance().getTeamB().getScore() + getString(R.string.dialog_next));
             dialogButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     progressBar.setProgress(0);
-                    textViewTeamName.setText(Core.teamA.getName());
+                    textViewTeamName.setText(Core.getInstance().getTeamA().getName());
                     activeTeam = 0;
                     countDownTimer.start();
                     dialog.dismiss();
@@ -173,13 +176,14 @@ public class GameRoundActivity extends Activity{
             });
 
         } else {
-            dialog.setTitle(Core.teamB.getName() + " - przygotujcie się!");
+            dialog.setTitle(Core.getInstance().getTeamB().getName() + " - przygotujcie się!");
             Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
+            dialogText.setText(Core.getInstance().getTeamA().getScore() + getString(R.string.dialog_next));
             dialogButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     progressBar.setProgress(0);
-                    textViewTeamName.setText(Core.teamB.getName());
+                    textViewTeamName.setText(Core.getInstance().getTeamB().getName());
                     activeTeam = 1;
                     countDownTimer2.start();
                     dialog.dismiss();
@@ -202,9 +206,9 @@ public class GameRoundActivity extends Activity{
                 if(currentIndex <loader.getPictures().size()){
                     currentIndex++;
                     if(activeTeam==0){
-                        Core.teamA.addPoint();
+                        Core.getInstance().getTeamA().addPoint();
                     } else {
-                        Core.teamB.addPoint();
+                        Core.getInstance().getTeamB().addPoint();
                     }
                     nextImage(randoms.get(currentIndex));
                 } else {
@@ -217,11 +221,14 @@ public class GameRoundActivity extends Activity{
             @Override
             public void onClick(View v) {
                 if(currentIndex <loader.getPictures().size()){
+                    Core.getInstance().getSkippedCharacters().add(new Picture(
+                            loader.getPictures().get(randoms.get(currentIndex)).getName(),
+                            loader.getPictures().get(randoms.get(currentIndex)).getSrc()));
                     currentIndex++;
                     if(activeTeam==0){
-                        Core.teamA.skip();
+                        Core.getInstance().getTeamA().skip();
                     } else {
-                        Core.teamB.skip();
+                        Core.getInstance().getTeamB().skip();
                     }
                     nextImage(randoms.get(currentIndex));
                 } else {

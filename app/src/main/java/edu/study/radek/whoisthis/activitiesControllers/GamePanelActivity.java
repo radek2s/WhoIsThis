@@ -7,12 +7,14 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import edu.study.radek.whoisthis.Core;
 import edu.study.radek.whoisthis.R;
 
 
 public class GamePanelActivity extends Activity {
 
     public static final String GAME_TYPE = "0";
+    private Button resultsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,13 @@ public class GamePanelActivity extends Activity {
                 exit();
             }
         });
+        resultsButton =  (Button) findViewById(R.id.btnResults);
+
+        if (Core.getInstance().getSkippedCharacters().isEmpty() ){
+            resultsButton.setVisibility(View.INVISIBLE);
+        } else {
+            resultsButton.setVisibility(View.VISIBLE);
+        }
 
     }
 
@@ -50,6 +59,11 @@ public class GamePanelActivity extends Activity {
         Intent intent = new Intent(this, IntroductionActivity.class);
         String type = "4";
         intent.putExtra(GAME_TYPE, type);
+        startActivity(intent);
+    }
+
+    public void openResults(View view){
+        Intent intent = new Intent(this, SkippedPeopleActivity.class);
         startActivity(intent);
     }
 

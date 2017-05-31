@@ -50,16 +50,16 @@ public class ResultsActivity extends Activity {
 
     private void setWinner(){
 
-        if ( Core.teamA.getScore() > Core.teamB.getScore()){
-            textViewTeamA.setText(Core.teamA.getName());
-            textViewTeamAP.setText(String.valueOf(Core.teamA.getScore()));
-            textViewTeamB.setText(Core.teamB.getName());
-            textViewTeamBP.setText(String.valueOf(Core.teamB.getScore()));
+        if ( Core.getInstance().getTeamA().getScore() > Core.getInstance().getTeamB().getScore()){
+            textViewTeamA.setText(Core.getInstance().getTeamA().getName());
+            textViewTeamAP.setText(String.valueOf(Core.getInstance().getTeamA().getScore()));
+            textViewTeamB.setText(Core.getInstance().getTeamB().getName());
+            textViewTeamBP.setText(String.valueOf(Core.getInstance().getTeamB().getScore()));
         } else {
-            textViewTeamA.setText(Core.teamB.getName());
-            textViewTeamAP.setText(String.valueOf(Core.teamB.getScore()));
-            textViewTeamB.setText(Core.teamA.getName());
-            textViewTeamBP.setText(String.valueOf(Core.teamA.getScore()));
+            textViewTeamA.setText(Core.getInstance().getTeamB().getName());
+            textViewTeamAP.setText(String.valueOf(Core.getInstance().getTeamB().getScore()));
+            textViewTeamB.setText(Core.getInstance().getTeamA().getName());
+            textViewTeamBP.setText(String.valueOf(Core.getInstance().getTeamA().getScore()));
         }
     }
 }
